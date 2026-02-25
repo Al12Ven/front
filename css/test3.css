@@ -1,0 +1,43 @@
+/* .main_new{
+	width:500px;
+	height:500px;
+	border-radius: 3px;
+	background-color:green;
+}
+.main{
+	width:500px;
+	height:500px;
+	border-radius: 3px;
+	background-color:green;
+}
+
+/* .test{
+	width:100px;
+	height:100px;
+	background-color:green;
+
+} */
+/* .test1{
+	width:100px;
+	height:100px;
+	background-color:burlywood; */
+/* 
+}
+.test2{
+	width:100px;
+	height:500px;
+	background-color:red;
+
+
+} */
+
+#block{
+	width:300px;
+	height:300px;
+	background-color:green;
+	border-radius: 5px;
+	margin: 0 auto;
+	background-image: url('../img/logo.PNG');
+
+}
+ 
