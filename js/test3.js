@@ -142,11 +142,82 @@
 // 			clearInterval(interval)
 // 		}
 // 	},10)
-// },5000)
+// },5000\
 
-window.addEventListener('load',function(){
-	console.log('Страница готова')
-})
+
+// const login = document.querySelector('#login')
+
+// login.addEventListener('keyup', () => {
+// 	d= login.value
+// 	le= d.length
+
+
+// 	const res = document.querySelector('#res')
+// 	const exp = /[a-z]/
+
+// 	if (exp.test(d) && le + 1 >= 12) {
+// 		res.style.color = 'green'
+// 		res.innerHTML = 'Количество символов удовлетворяет условие'
+// 	} else{
+// 		res.style.color = 'red'
+// 		res.innerHTML = 'Количество символов =' + d.length+' меньше 12'
+// 		// res.innerHTML = 'разрешены только маленькие буквы'
+// 	}
+// })
+
+// window.addEventListener('load',function(){
+// 	console.log('Страница готова')
+// })
+
+// const test= [10,2,6,54,5,-1];
+
+
+// console.log("__________________");
+// const hf =["Nick","Jim",13,];
+// test.sort((a,b) => a-b);
+// test.reverse();
+// const ju=test.concat(hf);
+// console.log(ju);
+// console.log("__________________");
+// const log=test.every(n=>n<0);
+// console.log(log);
+// console.log("__________________");
+// const log2=test.some(n=>n<0);
+// console.log(log2);
+// console.log("__________________");
+// console.log(test.includes(10));
+// // test.pop();
+// // test.shift();
+// test.push(12);
+// test.unshift("Tomm");
+// console.log(test);
+
+
+
+
+//1 НУжно сложить массивы чтобы было [11,13,15,17,19]
+const a = [1,2,3,4,5];
+const b = [10,11,12,13,14];
+const ob=a.concat(b);
+const sum=ob.reduce((prev,current)=>prev+current);
+console.log(sum);
+//2  Сделать нормальный массив
+const mas = ["a",1,[2,3],[[4]],"f","s"];
+const ar = mas.flat(Infinity);
+console.log(ar);
+//3 Не знаю что делать (Задание)
+const ul = [1, , 2,8,7,3,4, "+",5];
+const peep = ul.slice();
+console.log(peep);
+//4 Не знаю Задание
+const past = [[0],[[1]],[[[3]]]];
+
+
+
+//5 Не знаю задание
+const chist = [1,2,3,4,5];
+
+
 
 
 
