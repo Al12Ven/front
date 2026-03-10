@@ -194,22 +194,25 @@
 
 
 
-
-//1 НУжно сложить массивы чтобы было [11,13,15,17,19]
+// //1 НУжно сложить массивы чтобы было [11,13,15,17,19]
 // const a = [1,2,3,4,5];
 // const b = [10,11,12,13,14];
-// const ob=a.concat(b);
-// const sum=ob.reduce((prev,current)=>prev+current);
-// console.log(sum);
+// const result = a.map((v, i) => v + b[i]);
+// console.log(result);
+
 // //2  Сделать нормальный массив
-// const mas = ["a",1,[2,3],[[4]],"f","s"];
+// const mas = ["a",1,[2,3],[[4]],"5","s"];
 // const ar = mas.flat(Infinity);
-// console.log(ar);
-// //3 Не знаю что делать (Задание) вывод 28734
+// const ta = ar.filter(c => typeof c === 'number' || (typeof c === 'string' && !isNaN(c)));
+// const ap = ta.map(item => Number(item))
+// console.log(ap);
+
+// //3 Не знаю что делать (Задание)
 // const ul = [1, , 2,8,7,3,4, "+",5];
 // const peep = ul.slice();
-// const
 // console.log(peep);
+
+
 // //4 Не знаю Задание
 // const past = [[0],[[1]],[[[3]]]];
 
