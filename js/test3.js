@@ -196,26 +196,27 @@
 
 
 //1 НУжно сложить массивы чтобы было [11,13,15,17,19]
-const a = [1,2,3,4,5];
-const b = [10,11,12,13,14];
-const ob=a.concat(b);
-const sum=ob.reduce((prev,current)=>prev+current);
-console.log(sum);
-//2  Сделать нормальный массив
-const mas = ["a",1,[2,3],[[4]],"f","s"];
-const ar = mas.flat(Infinity);
-console.log(ar);
-//3 Не знаю что делать (Задание)
-const ul = [1, , 2,8,7,3,4, "+",5];
-const peep = ul.slice();
-console.log(peep);
-//4 Не знаю Задание
-const past = [[0],[[1]],[[[3]]]];
+// const a = [1,2,3,4,5];
+// const b = [10,11,12,13,14];
+// const ob=a.concat(b);
+// const sum=ob.reduce((prev,current)=>prev+current);
+// console.log(sum);
+// //2  Сделать нормальный массив
+// const mas = ["a",1,[2,3],[[4]],"f","s"];
+// const ar = mas.flat(Infinity);
+// console.log(ar);
+// //3 Не знаю что делать (Задание) вывод 28734
+// const ul = [1, , 2,8,7,3,4, "+",5];
+// const peep = ul.slice();
+// const
+// console.log(peep);
+// //4 Не знаю Задание
+// const past = [[0],[[1]],[[[3]]]];
 
 
 
-//5 Не знаю задание
-const chist = [1,2,3,4,5];
+// //5 Не знаю задание
+// const chist = [1,2,3,4,5];
 
 
 
