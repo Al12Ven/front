@@ -1,0 +1,139 @@
+p {
+    padding-top: 40px;
+    margin: 0;
+    font-size: 100px;
+    font-family: sans-serif;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+
+.inner-div {
+    height: 200px;
+    width: 400px;
+    margin: 10px;
+    background-color: #096eeb;
+  }
+
+
+  .it1 {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.it2 {
+    flex-grow: 2;
+    flex-shrink: 1;
+}
+
+.it3 {
+    flex-grow: 1;
+}
+
+
+
+/* Контейнер с блоками 1,2,3 */
+.container {
+	width: 100%;
+	height: 500px;
+	display: flex;
+    flex-direction: row;
+	flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: none;
+    
+}
+
+.it1 {
+    width: 400px;
+    background-color: aquamarine;
+}
+
+.it2 {
+
+
+    background-color: green;
+}
+
+.it3 {
+
+    background-color: purple;
+
+}
+
+
+
+/* Контейнер 2 с блоками 4,5*/
+.container2{
+    width: 100%;
+	height: 500px;
+	display: flex;
+    flex-grow: 1;
+
+}
+
+
+.it4 {
+
+    height: 100%;
+    width: 400px;
+    background-color: palevioletred;
+}
+
+.it5 {
+
+    height: 100%;
+    width: 100%;
+    background-color: peru;
+}
+
+
+
+/* Футер с контейнером */
+
+
+
+
+
+
+/* Контейнер 3 с блоками 6,7,8,9 */
+.container3{
+    flex-grow: 1;
+    width: 100%;
+	height: 200px;
+	display: flex;
+
+} 
+
+
+.it6 {
+    flex-grow: 1;
+    background-color: brown;
+}
+.it7 {
+    flex-grow: 1;
+    background-color: red;
+}
+
+.it8 {
+    flex-grow: 1;
+    background-color: navy;
+}
+
+.it9 {
+    flex-grow: 1;
+    background-color: olive;
+
+}
+
+.podval{
+  position: fixed;           /* Фиксируем подвал */
+  bottom: 0;                 /* Прижимаем к нижнему краю */
+  left: 0;
+  width: 100%;               /* На всю ширину экрана */
+  background-color: #f0f0f0;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
