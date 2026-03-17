@@ -1,4 +1,4 @@
-p {
+/* p {
     padding-top: 40px;
     margin: 0;
     font-size: 100px;
@@ -19,8 +19,8 @@ p {
 
 
 /* Контейнер с блоками 1,2,3 */
-.container {
-	width: 100%;
+/* .container { */
+	/* width: 100%;
 	height: 500px;
 	display: flex;
     flex-direction: row;
@@ -28,8 +28,8 @@ p {
     justify-content: flex-start;
     gap: none;
     
-}
-
+} */
+/* 
 .it1 {
     width: 400px;
     background-color: aquamarine;
@@ -43,23 +43,23 @@ p {
 
 .it3 {
 
-    background-color: purple;
+    background-color: purple; */
 
-}
+/* } */
 
 
 
 /* Контейнер 2 с блоками 4,5*/
-.container2{
+/* .container2{
     width: 100%;
 	height: 500px;
 	display: flex;
     flex-grow: 1;
 
-}
+} */
 
 
-.it4 {
+/* .it4 {
 
     height: 100%;
     width: 400px;
@@ -71,7 +71,7 @@ p {
     height: 100%;
     width: 100%;
     background-color: peru;
-}
+} */
 
 
 
@@ -83,15 +83,15 @@ p {
 
 
 /* Контейнер 3 с блоками 6,7,8,9 */
-.container3{
+/* .container3{
     flex-grow: 1;
     width: 100%;
 	height: 200px;
 	display: flex;
 
-} 
+}  */
 
-
+/* 
 .it6 {
     flex-grow: 1;
     background-color: brown;
@@ -110,16 +110,92 @@ p {
     flex-grow: 1;
     background-color: olive;
 
+} */
+
+/* .podval{ */
+  /* position: fixed;           /* Фиксируем подвал */
+  /* bottom: 0;                 Прижимаем к нижнему краю */
+  /* left: 0; */
+  /* width: 100%;               На всю ширину экрана */
+  /* background-color: #f0f0f0; */
+  /* padding: 10px 20px; */
+  /* text-align: center; */
+  /* font-size: 14px; */
+/* }  */
+
+
+
+/*170326*/
+
+
+
+
+
+p {
+	padding-top: 40px;
+	margin: 0;
+	font-size: 100px;
+	font-family: sans-serif;
+	text-align: center;
+	vertical-align: middle;
 }
 
-.podval{
-  position: fixed;           /* Фиксируем подвал */
-  bottom: 0;                 /* Прижимаем к нижнему краю */
-  left: 0;
-  width: 100%;               /* На всю ширину экрана */
-  background-color: #f0f0f0;
-  padding: 10px 20px;
-  text-align: center;
-  font-size: 14px;
+.inner-div {
+	height: 200px;
+	width: 400px;
+	margin: 10px;
+	background-color: #096eeb;
+}
+
+.container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: start;
+	align-items: stretch;
+	height: 500px;
+	align-content: stretch;
+}
+.item-2 {
+	flex-grow: 1;
+}
+
+.item-3 {
+	flex-grow: 1;
+}
+
+/*17.03.2026*/
+.block {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.block_inner1,
+.block_inner2,
+.block_inner3,
+.block_inner {
+	width: 300px;
+	height: 300px;
+	background-color: aquamarine;
+	margin-left: 20px;
+}
+
+
+.block{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+
+
+.block_inner1,
+.block_inner2,
+.block_inner3{
+    width: 300px;
+    height: 300px;
+    margin-left: 20px;
+    background-color: aquamarine;
 }
 
