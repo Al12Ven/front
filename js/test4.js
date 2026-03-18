@@ -1,30 +1,72 @@
-console.log('test4')
+// console.log('test4')
 
-async function fetchData() {
-	// prepar
-	const param1 = '#param1'
-	const param2 = '#param2'
+// async function fetchData() {
+// 	// prepar
+// 	const param1 = '#param1'
+// 	const param2 = '#param2'
 
-	let url = `http://localhost/myserver/?param1=${param1.value}&param2=${param2.value}`
+// 	let url = `http://localhost/myserver/?param1=${param1.value}&param2=${param2.value}`
+// 	let response = await fetch(url, {
+// 		method: 'GET',
+// 		headers: { Accept: 'application/json' },
+// 	})
+
+// 	let param = await response.json()
+
+// 	// добавление элементов в цикле
+// 	for (let key in param) {
+// 		if (param.hasOwnProperty(key)) {
+// 			const par = document.querySelector('.block')
+// 			const newDiv = document.createElement('div')
+// 			newDiv.className = 'block_inner'
+// 			newDiv.innerHTML = param[key]
+// 			par.appendChild(newDiv)
+// 		}
+// 	}
+// }
+
+// document.addEventListener('DOMContentLoaded', function () {
+// 	fetchData()
+// })
+
+
+
+async function fetchData(name, year) {
+	let url = `http://localhost/myserver/?name=${name}&year=${year}`
 	let response = await fetch(url, {
 		method: 'GET',
 		headers: { Accept: 'application/json' },
 	})
 
-	let param = await response.json()
+	//let param = await response.json()
+	//console.log(param)
+}
 
-	// добавление элементов в цикле
-	for (let key in param) {
-		if (param.hasOwnProperty(key)) {
-			const par = document.querySelector('.block')
-			const newDiv = document.createElement('div')
-			newDiv.className = 'block_inner'
-			newDiv.innerHTML = param[key]
-			par.appendChild(newDiv)
+function get_data_form() {
+	//const forms = document.querySelectorAll('#form_reg')
+	const btn_reg = document.querySelector('#btn_reg')
+	btn_reg.addEventListener('click', event => {
+		// валидация элементов
+
+		const exp = /[a-z]/
+		const name = document.querySelector('#name').value
+		const year = document.querySelector('#exampleInputInt').value
+
+
+		d = { name: name }
+		if (exp.test(name)){
+			console.log('Истино')
+			//d_to_server = JSON.stringify(d)
+			//console.log(d_to_server)
+			fetchData(name, year)
+		} else {
+			console.log('Ложно')
 		}
-	}
+
+		event.preventDefault()
+	})
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-	fetchData()
+	get_data_form()
 })
