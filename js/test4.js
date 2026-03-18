@@ -31,8 +31,8 @@
 
 
 
-async function fetchData(name, year) {
-	let url = `http://localhost/myserver/?name=${name}&year=${year}`
+async function fetchData(name,fam,ote, year,pass) {
+	let url = `http://localhost/myserver/?name=${name}&fam=${fam}&ote=${ote}&year=${year}&pass=${pass}`
 	let response = await fetch(url, {
 		method: 'GET',
 		headers: { Accept: 'application/json' },
@@ -48,17 +48,20 @@ function get_data_form() {
 	btn_reg.addEventListener('click', event => {
 		// валидация элементов
 
-		const exp = /[a-z]/
+		const exp = /[a-z]/ 
 		const name = document.querySelector('#name').value
+		const fam = document.querySelector('#fam').value
+		const ote = document.querySelector('#ote').value
 		const year = document.querySelector('#exampleInputInt').value
+		const pass = document.querySelector('#exampleInputPassword1').value
 
 
-		d = { name: name }
-		if (exp.test(name)){
+		// d = { name: name }
+		if (exp.test(name) && exp.test(fam) && exp.test(ote) && exp.test(pass)){
 			console.log('Истино')
 			//d_to_server = JSON.stringify(d)
 			//console.log(d_to_server)
-			fetchData(name, year)
+			fetchData(name, fam, ote, year, pass)
 		} else {
 			console.log('Ложно')
 		}
