@@ -32,13 +32,13 @@
 
 
 async function fetchData(name,fam,ote, year,pass) {
-	let url = `http://localhost/myserver/?name=${name}&fam=${fam}&ote=${ote}&year=${year}&pass=${pass}`
+	let url = `http://localhost/myserver/post?name=${name}&fam=${fam}&ote=${ote}&year=${year}&pass=${pass}`
 	let response = await fetch(url, {
-		method: 'GET',
+		method: 'POST',
 		headers: { Accept: 'application/json' },
 	})
 
-	//let param = await response.json()
+	// let param = await response.json()
 	//console.log(param)
 }
 

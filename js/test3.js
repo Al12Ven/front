@@ -384,357 +384,362 @@
 // }
 
 
-class Human
-{
-    name;
-    health = 100;
-    maxHealth = 100;
-    settlement;
+// class Human
+// {
+//     name;
+//     health = 100;
+//     maxHealth = 100;
+//     settlement;
 
-    constructor( name,  settlement)
-    {
-        this.name = name;
-        this.settlement = settlement;
-    }
+//     constructor( name,  settlement)
+//     {
+//         this.name = name;
+//         this.settlement = settlement;
+//     }
 
-    getName()
-    {
-        return this.name;
-    }
+//     getName()
+//     {
+//         return this.name;
+//     }
 
-    getHealth()
-    {
-        return this.health;
-    }
+//     getHealth()
+//     {
+//         return this.health;
+//     }
 
-    getSettlement()
-    {
-        return this.settlement;
-    }
+//     getSettlement()
+//     {
+//         return this.settlement;
+//     }
 
-    isAlive()
-    {
-        return this.health > 0;
-    }
+//     isAlive()
+//     {
+//         return this.health > 0;
+//     }
 
-     takeDamage(damage)
-    {
-        this.health = max(0, this.health - damage);
-    }
+//      takeDamage(damage)
+//     {
+//         this.health = max(0, this.health - damage);
+//     }
 
-    heal(amount)
-    {
-        this.health = min(this.maxHealth, this.health + amount);
-    }
+//     heal(amount)
+//     {
+//         this.health = min(this.maxHealth, this.health + amount);
+//     }
 
-    attack( target)
-    {
-        // Базовый метод атаки - переопределяется в наследниках
-    }
-
-
-    toString()
-    {
-        return "{this.name} ({this.health}/{this.maxHealth})";
-    }
-}
-
-/**
- * Класс Жителя
- */
-class Resident extends Human
-{
-    constructor(name, settlement)
-    {
-        super(name, settlement);
-    }
-
-    attack(target)
-    {
-        // Житель не может бить
-        console.log( "  {this.name} не умеет сражаться!\n");
-    }
-}
-
-/**
- * Класс Воина
- */
-class Warrior extends Human
-{
-    #damage = 10;
-
-    constructor(name,settlement)
-    {
-        super(name, settlement);
-    }
-
-    attack(target)
-    {
-        if (!target.isAlive()) {
-            return;
-        }
-
-        // Урон зависит от типа цели
-        if (target instanceof Resident) {
-            actualDamage = 15; // Урон жителю
-        } else {
-            actualDamage = this.damage; // Урон воину
-        }
-
-        target.takeDamage(actualDamage);
-        console.log("  {this.name} атакует {target.getName()} и наносит {actualDamage} урона!\n");
-    }
-}
-
-class Healer extends Human
-{
-    #healPower = 5;
-
-    constructor(name, settlement)
-    {
-        super(name, settlement);
-    }
-
-    attack(target)
-    {
-        // Лекарь не участвует в сражении
-        console.log( "  {this.name} не участвует в бою!\n");
-    }
-
-    healTarget(target)
-    {
-        if (!target.isAlive()) {
-            return;
-        }
-
-        target.heal(this.healPower);
-        console.log( "  {this.name} лечит {target.getName()} на {this.healPower} ед.\n");
-    }
-}
-
-/**
- * Класс Поселения
- */
-class Settlement
-{
-    #name;
-    #residents = [];
-    #warriors = [];
-    #healers = [];
-
-    constructor(name)
-    {
-        this.name = name;
-    }
-
-    getName()
-    {
-        return this.name;
-    }
-
-    addResident(resident)
-    {
-        this.residents = resident;
-    }
-
-    addWarrior(warrior)
-    {
-        this.warriors = warrior;
-    }
-
-    addHealer( healer)
-    {
-        this.healers = healer;
-    }
-
-    getAliveWarriors()
-    {
-        return array_filter;
-    }
-
-    getAliveResidents()
-    {
-        return array_filter;
-    }
-
-    getAliveHealers()
-    {
-        return array_filter;
-    }
-
-    hasAliveUnits()
-    {
-        return count(this.getAliveWarriors()) > 0 || 
-               count(this.getAliveResidents()) > 0;
-    }
-
-    getRandomAliveWarrior()
-    {
-        warriors = this.getAliveWarriors();
-        if (empty(warriors)) {
-            return null;
-        }
-        return warriors[array_rand(warriors)];
-    }
-
-    getRandomAliveResident()
-    {
-        residents = this.getAliveResidents();
-        if (empty(residents)) {
-            return null;
-        }
-        return residents[array_rand(residents)];
-    }
-
-    getRandomAliveHealer()
-    {
-        healers = this.getAliveHealers();
-        if (empty(healers)) {
-            return null;
-        }
-        return healers[array_rand(healers)];
-    }
-
-    getStats()
-    {
-        warriors = count(this.getAliveWarriors());
-        residents = count(this.getAliveResidents());
-        healers = count(this.getAliveHealers());
-        return "{this.name}: воинов={warriors}, жителей={residents}, лекарей={healers}";
-    }
-}
+//     attack( target)
+//     {
+//         // Базовый метод атаки - переопределяется в наследниках
+//     }
 
 
+//     toString()
+//     {
+//         return "{this.name} ({this.health}/{this.maxHealth})";
+//     }
+// }
 
+// /**
+//  * Класс Жителя
+//  */
+// class Resident extends Human
+// {
+//     constructor(name, settlement)
+//     {
+//         super(name, settlement);
+//     }
 
-class Game
-{
-    #settlement1;
-    #settlement2;
-    #round = 0;
-    #maxRounds = 1000;
+//     attack(target)
+//     {
+//         // Житель не может бить
+//         console.log( "  {this.name} не умеет сражаться!\n");
+//     }
+// }
 
-    constructor(settlement1, settlement2)
-    {
-        this.settlement1 = settlement1;
-        this.settlement2 = settlement2;
-    }
+// /**
+//  * Класс Воина
+//  */
+// class Warrior extends Human
+// {
+//     #damage = 10;
+
+//     constructor(name,settlement)
+//     {
+//         super(name, settlement);
+//     }
+
+//     attack(target)
+//     {
+//         if (!target.isAlive()) {
+//             return;
+//         }
+
+//         // Урон зависит от типа цели
+//         if (target instanceof Resident) {
+//             actualDamage = 15; // Урон жителю
+//         } else {
+//             actualDamage = this.damage; // Урон воину
+//         }
+
+//         target.takeDamage(actualDamage);
+//         console.log("  {this.name} атакует {target.getName()} и наносит {actualDamage} урона!\n");
+//     }
+// }
+
+// class Healer extends Human
+// {
+//     #healPower = 5;
+
+//     constructor(name, settlement)
+//     {
+//         super(name, settlement);
+//     }
+
+//     attack(target)
+//     {
+//         // Лекарь не участвует в сражении
+//         console.log( "  {this.name} не участвует в бою!\n");
+//     }
+
+//     healTarget(target)
+//     {
+//         if (!target.isAlive()) {
+//             return;
+//         }
+
+//         target.heal(this.healPower);
+//         console.log( "  {this.name} лечит {target.getName()} на {this.healPower} ед.\n");
+//     }
+// }
+
+// /**
+//  * Класс Поселения
+//  */
+// class Settlement
+// {
+//     #name;
+//     #residents = [];
+//     #warriors = [];
+//     #healers = [];
+
+//     constructor(name)
+//     {
+//         this.name = name;
+//     }
+
+//     getName()
+//     {
+//         return this.name;
+//     }
+
+//     addResident(resident)
+//     {
+//         this.residents = resident;
+//     }
+
+//     addWarrior(warrior)
+//     {
+//         this.warriors = warrior;
+//     }
+
+//     addHealer( healer)
+//     {
+//         this.healers = healer;
+//     }
+
+//     getAliveWarriors()
+//     {
+//         return array_filter;
+//     }
+
+//     getAliveResidents()
+//     {
+//         return array_filter;
+//     }
+
+//     getAliveHealers()
+//     {
+//         return array_filter;
+//     }
+
+//     hasAliveUnits()
+//     {
+//         return count(this.getAliveWarriors()) > 0 || 
+//                count(this.getAliveResidents()) > 0;
+//     }
+
+//     getRandomAliveWarrior()
+//     {
+//         warriors = this.getAliveWarriors();
+//         if (empty(warriors)) {
+//             return null;
+//         }
+//         return warriors[array_rand(warriors)];
+//     }
+
+//     getRandomAliveResident()
+//     {
+//         residents = this.getAliveResidents();
+//         if (empty(residents)) {
+//             return null;
+//         }
+//         return residents[array_rand(residents)];
+//     }
+
+//     getRandomAliveHealer()
+//     {
+//         healers = this.getAliveHealers();
+//         if (empty(healers)) {
+//             return null;
+//         }
+//         return healers[array_rand(healers)];
+//     }
+
+//     getStats()
+//     {
+//         warriors = count(this.getAliveWarriors());
+//         residents = count(this.getAliveResidents());
+//         healers = count(this.getAliveHealers());
+//         return "{this.name}: воинов={warriors}, жителей={residents}, лекарей={healers}";
+//     }
+// }
 
 
 
-    start()
-    {
-        console.log( "=== БИТВА НАЧАЛАСЬ! ===\n");
-        console.log( "{this.settlement1.getName()} против {this.settlement2.getName()}\n\n");
 
-        while (this.round < this.maxRounds) {
-            this.round++;
-            console.log( "--- Раунд {this.round} ---\n");
+// class Game
+// {
+//     #settlement1;
+//     #settlement2;
+//     #round = 0;
+//     #maxRounds = 1000;
 
-            // Атака первого поселения на второе
-            this.performAttack(this.settlement1, this.settlement2);
+//     constructor(settlement1, settlement2)
+//     {
+//         this.settlement1 = settlement1;
+//         this.settlement2 = settlement2;
+//     }
+
+
+
+//     start()
+//     {
+//         console.log( "=== БИТВА НАЧАЛАСЬ! ===\n");
+//         console.log( "{this.settlement1.getName()} против {this.settlement2.getName()}\n\n");
+
+//         while (this.round < this.maxRounds) {
+//             this.round++;
+//             console.log( "--- Раунд {this.round} ---\n");
+
+//             // Атака первого поселения на второе
+//             this.performAttack(this.settlement1, this.settlement2);
             
-            // Лечение в первом поселении
-            this.performHealing(this.settlement1);
+//             // Лечение в первом поселении
+//             this.performHealing(this.settlement1);
             
-            // Атака второго поселения на первое
-            this.performAttack(this.settlement2, this.settlement1);
+//             // Атака второго поселения на первое
+//             this.performAttack(this.settlement2, this.settlement1);
             
-            // Лечение во втором поселении
-            this.performHealing(this.settlement2);
+//             // Лечение во втором поселении
+//             this.performHealing(this.settlement2);
 
-            console.log("\nСтатус: {this.settlement1.getStats()} | {this.settlement2.getStats()}\n\n");
+//             console.log("\nСтатус: {this.settlement1.getStats()} | {this.settlement2.getStats()}\n\n");
 
-            // Проверка победы
-            winner = this.checkWinner();
-            if (winner !== null) {
-                console.log( "=== ИГРА ОКОНЧЕНА! ===\n");
-                console.log( "Победитель: {winner.getName()}!\n");
-                break;
-            }
+//             // Проверка победы
+//             winner = this.checkWinner();
+//             if (winner !== null) {
+//                 console.log( "=== ИГРА ОКОНЧЕНА! ===\n");
+//                 console.log( "Победитель: {winner.getName()}!\n");
+//                 break;
+//             }
 
-            if (this.round >= this.maxRounds) {
-                console.log( "=== НИЧЬЯ! ===\n");
-                console.log( "Достигнут лимит раундов.\n");
-            }
-        }
-    }
+//             if (this.round >= this.maxRounds) {
+//                 console.log( "=== НИЧЬЯ! ===\n");
+//                 console.log( "Достигнут лимит раундов.\n");
+//             }
+//         }
+//     }
 
-    #performAttack(attacker, defender)
-    {
-        warrior = attacker.getRandomAliveWarrior();
-        if (warrior === null) {
-            return;
-        }
+//     #performAttack(attacker, defender)
+//     {
+//         warrior = attacker.getRandomAliveWarrior();
+//         if (warrior === null) {
+//             return;
+//         }
 
-        // Случайный выбор цели: воин или житель
-        target = null;
-        rand = rand(0, 1);
+//         // Случайный выбор цели: воин или житель
+//         target = null;
+//         rand = rand(0, 1);
         
-        if ($rand === 0) {
-            target = defender.getRandomAliveWarrior();
-        } else {
-            target = defender.getRandomAliveResident();
-        }
+//         if ($rand === 0) {
+//             target = defender.getRandomAliveWarrior();
+//         } else {
+//             target = defender.getRandomAliveResident();
+//         }
 
-        if (target !== null) {
-            warrior.attack($target);
-        }
-    }
+//         if (target !== null) {
+//             warrior.attack($target);
+//         }
+//     }
 
-    #performHealing(settlement)
-    {
-        healer = settlement.getRandomAliveHealer();
-        if (healer === null) {
-            return;
-        }
+//     #performHealing(settlement)
+//     {
+//         healer = settlement.getRandomAliveHealer();
+//         if (healer === null) {
+//             return;
+//         }
 
-        // Лекарь лечит случайного раненого союзника
-        $target = null;
-        $rand = rand(0, 2);
+//         // Лекарь лечит случайного раненого союзника
+//         $target = null;
+//         $rand = rand(0, 2);
         
-        if (rand === 0) {
-            target = settlement.getRandomAliveWarrior();
-        }
-         else {
-            // Можно лечить и другого лекаря
-            target = settlement.getRandomAliveHealer();
-        }
+//         if (rand === 0) {
+//             target = settlement.getRandomAliveWarrior();
+//         }
+//          else {
+//             // Можно лечить и другого лекаря
+//             target = settlement.getRandomAliveHealer();
+//         }
 
-        if (target !== null && target.getHealth() < target.getHealth()) {
-            healer.healTarget(target);
-        }
-    }
+//         if (target !== null && target.getHealth() < target.getHealth()) {
+//             healer.healTarget(target);
+//         }
+//     }
 
-    #checkWinner()
-    {
-        s1Alive = this.settlement1.hasAliveUnits();
-        s2Alive = this.settlement2.hasAliveUnits();
+//     #checkWinner()
+//     {
+//         s1Alive = this.settlement1.hasAliveUnits();
+//         s2Alive = this.settlement2.hasAliveUnits();
 
-        if (!s2Alive && s1Alive) {
-            return this.settlement1;
-        }
-        if (!s1Alive && s2Alive) {
-            return this.settlement2;
-        }
-        return null;
-    }
-}
+//         if (!s2Alive && s1Alive) {
+//             return this.settlement1;
+//         }
+//         if (!s1Alive && s2Alive) {
+//             return this.settlement2;
+//         }
+//         return null;
+//     }
+// }
 
 
-vikings = new Settlement("Викинги");
-english = new Settlement("Англичане");
+// vikings = new Settlement("Викинги");
+// english = new Settlement("Англичане");
 
-// Создание персонажей для Викингов
-vikings.addWarrior(new Warrior("Рагнар", "Викинги"));
-vikings.addResident(new Resident("Бьорн", "Викинги"));
-vikings.addHealer(new Healer("Фрида", "Викинги"));
+// // Создание персонажей для Викингов
+// vikings.addWarrior(new Warrior("Рагнар", "Викинги"));
+// vikings.addResident(new Resident("Бьорн", "Викинги"));
+// vikings.addHealer(new Healer("Фрида", "Викинги"));
 
-// Создание персонажей для Англичан
-english.addWarrior(new Warrior("Эдвард", "Англичане"));
-english.addResident(new Resident("Томас", "Англичане"));
-english.addHealer(new Healer("Мэри", "Англичане"));
+// // Создание персонажей для Англичан
+// english.addWarrior(new Warrior("Эдвард", "Англичане"));
+// english.addResident(new Resident("Томас", "Англичане"));
+// english.addHealer(new Healer("Мэри", "Англичане"));
 
-// Создание и запуск игры
-game = new Game(vikings, english);
-console.log(game.start());
+// // Создание и запуск игры
+// game = new Game(vikings, english);
+// console.log(game.start());
+
+
+let str = 'A'
+let regexp = /[abc]/
+alert(regexp.test(str))
